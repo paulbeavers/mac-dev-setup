@@ -9,7 +9,7 @@ git clone <repo-url> ~/mac-dev-setup
 ~/mac-dev-setup/install.sh
 ```
 
-On macOS, `install.sh` first installs [Homebrew](https://brew.sh) and kitty (`brew install --cask kitty`) if they are missing. Pass `--no-brew` to skip that and only copy files.
+On macOS, `install.sh` first installs [Homebrew](https://brew.sh), kitty (`brew install --cask kitty`) and the CLI tools the shell config uses (`eza bat fd fzf zoxide`), skipping any already installed. Pass `--no-brew` to skip that and only copy files.
 
 It then copies:
 
@@ -25,7 +25,7 @@ Restart kitty after the first install so opacity, title bar and fullscreen setti
 
 - `kitty.conf` — main settings: font size, opacity and blur, borders, margins, padding, focus follows mouse, pane shortcuts
 - `theme.conf` — colors (included from `kitty.conf`)
-- `shell/zshrc`, `shell/bashrc` — prompt with git status, history, completion, aliases; optional tools (`brew install eza bat fd fzf zoxide`) are used when present
+- `shell/zshrc`, `shell/bashrc` — prompt with git status, history, completion, aliases; the CLI tools are used when present
 
 ## Notes
 

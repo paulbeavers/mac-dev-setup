@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
-# Install Homebrew and kitty (macOS), then this kitty config and the
+# Install Homebrew, kitty and CLI tools (macOS), then this kitty config and the
 # zsh/bash rc files. Existing files are backed up with a timestamp suffix
 # before being replaced.
 #
 #   ./install.sh            install everything
-#   ./install.sh --no-brew  skip Homebrew and kitty, only copy files
+#   ./install.sh --no-brew  skip Homebrew, kitty and tools; only copy files
 set -euo pipefail
 
 src_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 kitty_dir="${KITTY_CONFIG_DIRECTORY:-${XDG_CONFIG_HOME:-$HOME/.config}/kitty}"
 stamp="$(date +%Y%m%d-%H%M%S)"
+brew_tools=(eza bat fd fzf zoxide)
 
 with_brew=1
 for arg in "$@"; do
@@ -53,6 +54,20 @@ install_brew_and_kitty() {
   else
     echo "installing: kitty"
     brew install --cask kitty
+  fi
+
+  # Command-line tools the zshrc and bashrc use when present.
+  local tool missing=()
+  for tool in "${brew_tools[@]}"; do
+    if brew list --formula "$tool" >/dev/null 2>&1; then
+      echo "present:   $tool"
+    else
+      missing+=("$tool")
+    fi
+  done
+  if [ "${#missing[@]}" -gt 0 ]; then
+    echo "installing: ${missing[*]}"
+    brew install "${missing[@]}"
   fi
 }
 
