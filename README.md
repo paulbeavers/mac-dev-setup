@@ -9,7 +9,7 @@ git clone <repo-url> ~/mac-dev-setup
 ~/mac-dev-setup/install.sh
 ```
 
-On macOS, `install.sh` first installs [Homebrew](https://brew.sh), kitty (`brew install --cask kitty`) and the CLI tools the shell config uses (`eza bat fd fzf zoxide`), skipping any already installed. Pass `--no-brew` to skip that and only copy files.
+On macOS, `install.sh` first installs [Homebrew](https://brew.sh), kitty (`brew install --cask kitty`) and the CLI tools the shell config uses (`eza bat fd fzf zoxide`), skipping any already installed. On any OS it installs [Claude Code](https://claude.com/claude-code) with Anthropic's native installer if `claude` is missing. Pass `--no-brew` or `--no-claude` to skip either step.
 
 It then copies:
 

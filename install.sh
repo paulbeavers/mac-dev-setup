@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Install Homebrew, kitty and CLI tools (macOS), then this kitty config and the
-# zsh/bash rc files. Existing files are backed up with a timestamp suffix
-# before being replaced.
+# Install Homebrew, kitty and CLI tools (macOS) and Claude Code, then the
+# kitty config and zsh/bash rc files. Existing files are backed up with a
+# timestamp suffix before being replaced.
 #
-#   ./install.sh            install everything
-#   ./install.sh --no-brew  skip Homebrew, kitty and tools; only copy files
+#   ./install.sh              install everything
+#   ./install.sh --no-brew    skip Homebrew, kitty and tools
+#   ./install.sh --no-claude  skip Claude Code
 set -euo pipefail
 
 src_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -13,10 +14,12 @@ stamp="$(date +%Y%m%d-%H%M%S)"
 brew_tools=(eza bat fd fzf zoxide)
 
 with_brew=1
+with_claude=1
 for arg in "$@"; do
   case "$arg" in
     --no-brew) with_brew=0 ;;
-    -h|--help) sed -n '2,7p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    --no-claude) with_claude=0 ;;
+    -h|--help) sed -n '2,8p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     *) echo "unknown option: $arg" >&2; exit 2 ;;
   esac
 done
@@ -71,8 +74,22 @@ install_brew_and_kitty() {
   fi
 }
 
+# Anthropic's native installer, which puts claude in ~/.local/bin and
+# keeps it updated itself.
+install_claude_code() {
+  if command -v claude >/dev/null || [ -x "$HOME/.local/bin/claude" ]; then
+    echo "present:   Claude Code"
+  else
+    echo "installing: Claude Code"
+    curl -fsSL https://claude.ai/install.sh | bash
+  fi
+}
+
 if [ "$with_brew" = 1 ]; then
   install_brew_and_kitty
+fi
+if [ "$with_claude" = 1 ]; then
+  install_claude_code
 fi
 
 # install_file <source> <destination>
