@@ -1,12 +1,12 @@
-# kitty-config
+# mac-dev-setup
 
-My [kitty](https://sw.kovidgoyal.net/kitty/) terminal configuration: a neon "Fluorescent" theme on a translucent, blurred black background.
+My Mac development setup: Homebrew, the [kitty](https://sw.kovidgoyal.net/kitty/) terminal with a neon "Fluorescent" theme on a translucent, blurred black background, and zsh/bash config.
 
 ## Install
 
 ```sh
-git clone <repo-url> ~/kitty-config
-~/kitty-config/install.sh
+git clone <repo-url> ~/mac-dev-setup
+~/mac-dev-setup/install.sh
 ```
 
 On macOS, `install.sh` first installs [Homebrew](https://brew.sh) and kitty (`brew install --cask kitty`) if they are missing. Pass `--no-brew` to skip that and only copy files.
