@@ -143,7 +143,6 @@
   <tr><td><code>dynamic_background_opacity</code></td><td>yes</td><td>Opacity can change on reload or with shortcuts</td></tr>
   <tr><td><code>background_blur</code></td><td>40</td><td>Blurs what is behind the window</td></tr>
   <tr><td><code>macos_titlebar_color</code></td><td>background</td><td>Black title bar instead of system gray</td></tr>
-  <tr><td><code>macos_traditional_fullscreen</code></td><td>yes</td><td>Full screen without a separate Space, so the desktop shows through</td></tr>
   <tr><td><code>draw_minimal_borders</code></td><td>no</td><td>Full border around every pane, including screen edges</td></tr>
   <tr><td><code>window_border_width</code></td><td>2pt</td><td>Magenta border on the active pane, blue on inactive ones</td></tr>
   <tr><td><code>window_margin_width</code></td><td>1.2 1.5</td><td>Gap around panes (top/bottom, left/right)</td></tr>
@@ -164,7 +163,7 @@
   <tr><td><kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>f</kbd> / <kbd>b</kbd></td><td>Move pane forward / back in order</td></tr>
   <tr><td><kbd>cmd</kbd>+<kbd>r</kbd></td><td>Resize mode: <kbd>w</kbd> <kbd>n</kbd> <kbd>t</kbd> <kbd>s</kbd>, <kbd>esc</kbd> to finish</td></tr>
   <tr><td><kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>a</kbd> then <kbd>m</kbd> / <kbd>l</kbd></td><td>More / less opaque (<kbd>d</kbd> resets)</td></tr>
-  <tr><td><kbd>ctrl</kbd>+<kbd>cmd</kbd>+<kbd>f</kbd></td><td>Full screen</td></tr>
+  <tr><td><kbd>ctrl</kbd>+<kbd>cmd</kbd>+<kbd>f</kbd></td><td>Full screen, in its own Space (background is solid black there, since nothing is behind it)</td></tr>
 </table>
 </div>
 
@@ -218,7 +217,7 @@ cd ~/mac-dev-setup &amp;&amp; git commit -am "Update config"</code></pre>
   <li><code>background_blur</code> needs kitty 0.32 or later.</li>
   <li>The <code>macos_*</code> kitty options are ignored on Linux, and the Homebrew step is skipped there.</li>
   <li>On macOS, bash usually starts as a login shell, which reads <code>~/.bash_profile</code> rather than <code>~/.bashrc</code>. zsh, the macOS default, is not affected.</li>
-  <li>Some settings (title bar, full screen) only apply after restarting kitty, not on reload.</li>
+  <li>Some settings (such as the title bar color) only apply after restarting kitty, not on reload.</li>
 </ul>
 
 <footer>mac-dev-setup · Paul Beavers</footer>

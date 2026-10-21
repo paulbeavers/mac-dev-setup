@@ -19,7 +19,7 @@ It then copies:
 
 Any existing file that differs is backed up as `<name>.bak-<timestamp>` first.
 
-Restart kitty after the first install so opacity, title bar and fullscreen settings take effect, and open a new shell to pick up the rc files.
+Restart kitty after the first install so opacity and title bar settings take effect, and open a new shell to pick up the rc files.
 
 ## Files
 
