@@ -5,7 +5,7 @@ My Mac development setup: Homebrew, the [kitty](https://sw.kovidgoyal.net/kitty/
 ## Install
 
 ```sh
-git clone <repo-url> ~/mac-dev-setup
+git clone https://github.com/paulbeavers/mac-dev-setup.git ~/mac-dev-setup
 ~/mac-dev-setup/install.sh
 ```
 
