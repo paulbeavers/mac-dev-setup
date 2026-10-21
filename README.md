@@ -9,14 +9,21 @@ git clone <repo-url> ~/kitty-config
 ~/kitty-config/install.sh
 ```
 
-`install.sh` copies `kitty.conf` and `theme.conf` into `~/.config/kitty` (or `$KITTY_CONFIG_DIRECTORY` / `$XDG_CONFIG_HOME/kitty` if set). Any existing file that differs is backed up as `<name>.bak-<timestamp>` first.
+`install.sh` copies:
 
-Restart kitty after the first install so opacity, title bar and fullscreen settings take effect.
+- `kitty.conf` and `theme.conf` into `~/.config/kitty` (or `$KITTY_CONFIG_DIRECTORY` / `$XDG_CONFIG_HOME/kitty` if set)
+- `shell/zshrc` to `~/.zshrc`
+- `shell/bashrc` to `~/.bashrc`
+
+Any existing file that differs is backed up as `<name>.bak-<timestamp>` first.
+
+Restart kitty after the first install so opacity, title bar and fullscreen settings take effect, and open a new shell to pick up the rc files.
 
 ## Files
 
-- `kitty.conf` — main settings: font size, opacity and blur, borders, margins, padding, focus follows mouse
+- `kitty.conf` — main settings: font size, opacity and blur, borders, margins, padding, focus follows mouse, pane shortcuts
 - `theme.conf` — colors (included from `kitty.conf`)
+- `shell/zshrc`, `shell/bashrc` — prompt with git status, history, completion, aliases; optional tools (`brew install eza bat fd fzf zoxide`) are used when present
 
 ## Notes
 
