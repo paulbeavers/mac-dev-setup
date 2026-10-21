@@ -110,6 +110,7 @@ install_file() {
 
 install_file "$src_dir/kitty.conf"   "$kitty_dir/kitty.conf"
 install_file "$src_dir/theme.conf"   "$kitty_dir/theme.conf"
+install_file "$src_dir/startup.session" "$kitty_dir/startup.session"
 install_file "$src_dir/shell/zshrc"  "$HOME/.zshrc"
 install_file "$src_dir/shell/bashrc" "$HOME/.bashrc"
 

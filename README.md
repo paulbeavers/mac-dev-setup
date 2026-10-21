@@ -13,7 +13,7 @@ On macOS, `install.sh` first installs [Homebrew](https://brew.sh), kitty (`brew 
 
 It then copies:
 
-- `kitty.conf` and `theme.conf` into `~/.config/kitty` (or `$KITTY_CONFIG_DIRECTORY` / `$XDG_CONFIG_HOME/kitty` if set)
+- `kitty.conf`, `theme.conf` and `startup.session` into `~/.config/kitty` (or `$KITTY_CONFIG_DIRECTORY` / `$XDG_CONFIG_HOME/kitty` if set)
 - `shell/zshrc` to `~/.zshrc`
 - `shell/bashrc` to `~/.bashrc`
 
@@ -25,6 +25,7 @@ Restart kitty after the first install so opacity and title bar settings take eff
 
 - `kitty.conf` — main settings: font size, opacity and blur, borders, margins, padding, focus follows mouse, pane shortcuts
 - `theme.conf` — colors (included from `kitty.conf`)
+- `startup.session` — kitty launches full screen with two panes side by side (grid layout)
 - `shell/zshrc`, `shell/bashrc` — prompt with git status, history, completion, aliases; the CLI tools are used when present
 
 ## Notes

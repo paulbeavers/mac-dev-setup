@@ -1,0 +1,8 @@
+# Opened when kitty starts: full screen, two shells side by side.
+# The grid layout fills a 2x2 as more panes are added.
+os_window_state fullscreen
+layout grid
+cd ~
+launch
+focus
+launch

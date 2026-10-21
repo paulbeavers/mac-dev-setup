@@ -116,6 +116,7 @@
   <tr><th>Repo file</th><th>Installed to</th></tr>
   <tr><td><code>kitty.conf</code></td><td><code>~/.config/kitty/kitty.conf</code></td></tr>
   <tr><td><code>theme.conf</code></td><td><code>~/.config/kitty/theme.conf</code></td></tr>
+  <tr><td><code>startup.session</code></td><td><code>~/.config/kitty/startup.session</code></td></tr>
   <tr><td><code>shell/zshrc</code></td><td><code>~/.zshrc</code></td></tr>
   <tr><td><code>shell/bashrc</code></td><td><code>~/.bashrc</code></td></tr>
 </table>
@@ -139,13 +140,14 @@
 <div class="table-wrap">
 <table>
   <tr><th>Setting</th><th>Value</th><th>What it does</th></tr>
+  <tr><td><code>startup_session</code></td><td>startup.session</td><td>Launches full screen (own Space) with two panes side by side in the grid layout</td></tr>
   <tr><td><code>background_opacity</code></td><td>0.90</td><td>Slightly see-through window</td></tr>
   <tr><td><code>dynamic_background_opacity</code></td><td>yes</td><td>Opacity can change on reload or with shortcuts</td></tr>
   <tr><td><code>background_blur</code></td><td>40</td><td>Blurs what is behind the window</td></tr>
   <tr><td><code>macos_titlebar_color</code></td><td>background</td><td>Black title bar instead of system gray</td></tr>
   <tr><td><code>draw_minimal_borders</code></td><td>no</td><td>Full border around every pane, including screen edges</td></tr>
   <tr><td><code>window_border_width</code></td><td>2pt</td><td>Magenta border on the active pane, blue on inactive ones</td></tr>
-  <tr><td><code>window_margin_width</code></td><td>0.5 1.5</td><td>Gap around panes (top/bottom, left/right)</td></tr>
+  <tr><td><code>window_margin_width</code></td><td>1 1.5</td><td>Gap around panes (top/bottom, left/right)</td></tr>
   <tr><td><code>window_padding_width</code></td><td>0 6</td><td>Space between border and text (left/right only)</td></tr>
   <tr><td><code>focus_follows_mouse</code></td><td>yes</td><td>Hovering a pane focuses it</td></tr>
   <tr><td><code>macos_option_as_alt</code></td><td>yes</td><td>Option works as alt in the shell (no special characters like é)</td></tr>
@@ -207,7 +209,7 @@
 
 <h2>Keeping the repo up to date</h2>
 <p>The installed files are copies, not links, so your setup keeps working without the repo. After changing a live file, copy it back and commit:</p>
-<pre><code>cp ~/.config/kitty/kitty.conf ~/.config/kitty/theme.conf ~/mac-dev-setup/
+<pre><code>cp ~/.config/kitty/{kitty.conf,theme.conf,startup.session} ~/mac-dev-setup/
 cp ~/.zshrc ~/mac-dev-setup/shell/zshrc
 cp ~/.bashrc ~/mac-dev-setup/shell/bashrc
 cd ~/mac-dev-setup &amp;&amp; git commit -am "Update config"</code></pre>
