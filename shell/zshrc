@@ -37,6 +37,14 @@ if [[ -z ${HOMEBREW_PREFIX:-} ]]; then
     unset __lucent_brew
 fi
 
+# ---- PATH ------------------------------------------------------------------
+#
+# ~/.local/bin first, for tools installed per user (pipx, uv, claude).
+# typeset -U keeps path free of duplicates when a shell nests another.
+
+typeset -U path
+path=("$HOME/.local/bin" $path)
+
 # ---- History ---------------------------------------------------------------
 
 HISTFILE=${HISTFILE:-$HOME/.zsh_history}

@@ -41,6 +41,18 @@ if [[ -z ${HOMEBREW_PREFIX:-} ]]; then
     unset __lucent_brew
 fi
 
+# ---- PATH ------------------------------------------------------------------
+#
+# ~/.local/bin first, for tools installed per user (pipx, uv, claude).
+# Any copy already on PATH is taken out first, so it moves to the front
+# rather than appearing twice, as zsh's typeset -U does.
+
+PATH=":$PATH:"
+PATH=${PATH//":$HOME/.local/bin:"/:}
+PATH=${PATH#:}
+PATH=${PATH%:}
+PATH="$HOME/.local/bin${PATH:+:$PATH}"
+
 # ---- History ---------------------------------------------------------------
 
 HISTSIZE=100000
