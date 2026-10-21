@@ -9,7 +9,9 @@ git clone <repo-url> ~/kitty-config
 ~/kitty-config/install.sh
 ```
 
-`install.sh` copies:
+On macOS, `install.sh` first installs [Homebrew](https://brew.sh) and kitty (`brew install --cask kitty`) if they are missing. Pass `--no-brew` to skip that and only copy files.
+
+It then copies:
 
 - `kitty.conf` and `theme.conf` into `~/.config/kitty` (or `$KITTY_CONFIG_DIRECTORY` / `$XDG_CONFIG_HOME/kitty` if set)
 - `shell/zshrc` to `~/.zshrc`
